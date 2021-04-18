@@ -1,0 +1,28 @@
+spring:
+  freemarker:
+    expose-request-attributes: true
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    show-sql: false
+  datasource:
+    initialization-mode: always
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:1}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost/journal}
+  mail:
+    host: smtp.gmail.com
+    username: ${mail-name}
+    password: ${mail-password}
+    port: 465
+    properties:
+      mail:
+        protocol: smtps
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
