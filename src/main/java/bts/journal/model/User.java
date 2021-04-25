@@ -2,6 +2,7 @@ package bts.journal.model;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import java.util.List;
 @Table(name = "usr")
 @Getter
 @Setter
+@Builder(builderMethodName = "of")
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
