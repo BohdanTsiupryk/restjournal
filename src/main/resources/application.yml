@@ -26,3 +26,4 @@ spring:
             enable: true
           ssl:
             enable: true
+jwt.secret: shit

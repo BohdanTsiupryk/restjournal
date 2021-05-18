@@ -6,5 +6,5 @@ import lombok.Data;
 @Builder
 @Data
 public class JwtResp {
-    private final String token;
+    private String token;
 }

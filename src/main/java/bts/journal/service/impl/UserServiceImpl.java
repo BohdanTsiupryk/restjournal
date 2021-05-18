@@ -6,7 +6,9 @@ import bts.journal.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -15,6 +17,11 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepo.findAll();
+    }
 
     @Override
     public User findByLogin(String login) {
@@ -40,6 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void addUser(User user) {
         userRepo.save(user);
     }

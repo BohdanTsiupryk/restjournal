@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/table")
@@ -20,7 +22,7 @@ public class TableController {
     private final GroupRepo groupRepo;
 
     @GetMapping
-    public ResponseEntity<Table> getTable(@RequestParam long groupId) {
+    public ResponseEntity<Table> getTable(@RequestParam long groupId, HttpServletRequest request) {
         Group group = groupRepo.findById(groupId).get();
 
         Table table = Table.toDto(group);
