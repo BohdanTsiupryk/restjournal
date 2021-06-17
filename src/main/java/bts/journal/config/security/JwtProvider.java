@@ -48,7 +48,7 @@ public class JwtProvider {
     }
 
     public String getLoginFromToken(String token) {
-        Claims claims = Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(getTokenFromRequest(token)).getBody();
+        Claims claims = Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
         String subject = claims.getSubject();
         TokenData tokenData = gson.fromJson(subject, TokenData.class);
 

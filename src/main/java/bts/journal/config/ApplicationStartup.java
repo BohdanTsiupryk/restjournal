@@ -36,7 +36,7 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
                 .email("email")
                 .password(secPass)
                 .name("email")
-                .role(UserRole.STUDENT)
+                .role(UserRole.ADMIN)
                 .build();
         userService.addUser(user);
     }
